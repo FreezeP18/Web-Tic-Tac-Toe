@@ -6,6 +6,10 @@ export default function Player(props) {
 
   function handleEditClick() {
     setIsEditing((editing) => !editing);
+
+    if (isEditing) {
+      props.onChangeName(props.symbol, playerName);
+    }
   }
 
   function handleChange(event) {
@@ -24,7 +28,7 @@ export default function Player(props) {
 
   return (
     <>
-      <li className={props.isActive ? 'active' : undefined}>
+      <li className={props.isActive ? "active" : undefined}>
         <span className="player">
           {editablePlayerName}
           <span className="player-symbol">{props.symbol}</span>
